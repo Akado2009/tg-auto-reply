@@ -23,7 +23,7 @@ def main():
 
     @client.on(events.NewMessage(incoming=True))
     async def handler(event):
-        if event.user_id not in ignored_user_ids:
+        if event.from_user not in ignored_user_ids:
             print(time.asctime(), '-', event.message)
             time.sleep(timeout_time)
             await event.reply(message)
