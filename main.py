@@ -23,10 +23,9 @@ def main():
 
     @client.on(events.NewMessage(incoming=True))
     async def handler(event):
-        if event.from_user not in ignored_user_ids:
-            print(time.asctime(), '-', event.message)
-            time.sleep(timeout_time)
-            await event.reply(message)
+        print(time.asctime(), '-', event.message)
+        time.sleep(timeout_time)
+        await event.reply(message)
     
     print(time.asctime(), '-', 'Waiting for incoming messages...')
     client.run_until_disconnected()
